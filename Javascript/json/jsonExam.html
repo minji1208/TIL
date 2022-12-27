@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+
+        let client = {
+            "script": "Javascript / jQeury / Ajax",
+            "text": "클라이언트 프로그래밍 과목을 정리해 놓은 게시판입니다.",
+            "num": ["공지", 3, 2, 1],
+            "title": ["클라이언트 프로그래밍", "Ajax", "jQuery", "Javascript"],
+            "view": [3, 6, 15, 19],
+            "date": ["2017.01.29", "2018.04.08", "2017.11.07", "2017.06.05"]
+        };
+
+        document.write("<h1>" + client.script + "</h1><p>" + client.text + "</p>");
+
+        let tag = "<table id='json_table'><caption>총 게시물의 수 : " + client.num.length + "개</caption><tr><td>번호</td><td>제목</td><td>조회수</td><td>등록일</td></tr>";
+        for (let i = 0; i < client.num.length; i++) {
+            tag += "<tr><td>" + client.num[i] + "</td><td class='title'>" + client.title[i] + "</td><td>" + client.view[i] + "</td><td>" + client.date[i] + "</td></tr>"
+        }
+        tag += "</table>";
+        document.write(tag);
+
+
+    </script>
+
+    <style>
+        table {
+            border: 2px solid black;
+            width: 500px;
+            border-collapse: collapse;
+        }
+
+        table tr td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table tr td.title {
+            text-align: left;
+        }
+
+        table tr:first-child {
+            font-weight: bold;
+            border: 2px solid black;
+        }
+
+        table caption {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
