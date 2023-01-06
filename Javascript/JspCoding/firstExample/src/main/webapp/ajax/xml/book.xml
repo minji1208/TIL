@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<book>
+	<info>
+		<title>작가의 고양이들</title>
+		<writer>뮈리엘 바르베리</writer>
+		<price>12150원</price>
+	</info>
+	<info>
+		<title>인생은 두 컷 만화</title>
+		<writer>누누씨 글그림</writer>
+		<price>17550원</price>
+	</info>
+	<info>
+		<title>발칙한 이솝우화</title>
+		<writer>최강록</writer>
+		<price>15300원</price>
+	</info>
+</book>

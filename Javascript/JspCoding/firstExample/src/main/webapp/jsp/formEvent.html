@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+		
+		<!-- [if lt IE 9]>
+		<script src="../js/html5shive.js"></script>
+		<![endif]-->
+		<script src="../js/jquery-3.6.2.min.js"></script>
+		
+		<script>
+			function init(){
+				$("#user_id").on("change", function(){
+					let reg = /^[A-Z]\w{5,11}$/;
+					if(reg.test($(this).val())){
+						alert("사용할 수 있는 아이디");
+						$("#user_pw").focus();
+					} else{
+						alert("사용할 수 없는 아이디");
+						$(this).val()=="";
+						$(this).focus();
+					} 
+				});
+				
+				$("#user_pw").on("change", function(){
+					let reg = /^(\w|\d|\!|\~|\@|\#|\$|\%|\^|\&|\*|\_|\-){8,32}$/;
+					if(reg.test($("user_pw").val())){
+						alert("사용할 수 있는 비밀번호");
+						$("#user_pwck").focus();
+					} else{
+						alert("사용할 수 없는 비밀번호");
+						$(this).val()=="";
+						$(this).focus();
+					} 
+				});
+				
+				$("#user_pwck").on("change", function(){
+					if($(this).val()==$("#user_pw").val()){
+						$("#user_name").focus();
+					} else{
+						alert("입력한 비밀번호가 일치하지 않습니다.");
+						$(this).val()=="";
+						$(this).focus();
+					}
+				});
+				
+				$("#user_name").on("change", function(){
+					if($(this).val()==""){
+						$(this).focus();
+					} else{
+						$("#birth").focus();
+					}
+				});
+				
+				$("#birth").on("change", function(){
+					if($(this).val()==""){
+						$(this).focus();
+						result = false;
+					} 
+				})
+				
+				const gender = $("input[name='gender']:checked").val();
+				
+				$("#email").on("change", function(){
+					if(($(this).val()).match(/\@/g)==null){
+						$("#emailDomain").focus();
+					} else{
+						alert("특수문자가 포함되면 안됩니다.");
+						$(this).val()="";
+						$(this).focus();
+					}
+					if($(this).val()==""){
+						result=false;
+					}
+				});
+				
+				$("#emailDomain").on("change", function(){
+					const reg = /^(naver.com|daum.net|nate.com|gmail.com)$/;
+					if(reg.test($("#emailDomain").val())){
+						$("#hpno").focus();
+						result = true;
+					} else{
+						alert("도메인 주소가 잘못되었습니다.");
+						$("#emailDomain").val()=="";
+						$("#emailDomain").focus();
+						result = false;
+					}
+					if($("#emailDomain").val()==""){
+						result = false;
+					}
+				})
+				
+				$("#hpno").on("change", function(){
+					const reg=/^\d{11}$/;
+					if(reg.test(Number($(this).val()))){
+						result = true;
+					} else{
+						result = false;
+						$(this).val()=="";
+						$(this).focus();
+					}
+					if($(this).val()==""){
+						result =false;
+					}
+				});
+				
+				
+				$("#all").change(function(){
+					if($("#all").is(':checked')){
+						$("input[name='hobby']").prop('checked', true);
+					} else{
+						$("input[name='hobby']").prop('checked', false);
+					}
+				});
+				
+				$("#file_check").change(function(){
+					if($("#file_check").is(':checked')){
+						$("#file").attr("disabled", false);
+					} else{
+						$("#file").attr("disabled", true);						
+					}
+				})
+				
+				
+				$("#check").click(function(){
+					
+					if($("#user_id").val()==""){
+						alert("아이디를 입력해주세요.");
+						$("#user_id").focus();
+					} else if($("#user_pw").val()==""){
+						alert("비밀번호를 입력해주세요.");
+						$("#user_pw").focus();
+					} else if($("user_pwck").val()==""){
+						alert("비밀번호를 확인해주세요.");
+						$("#user_pwck").focus();
+					} else if($("#user_name").val()==""){
+						alert("이름을 입력해주세요.");
+						$("#user_name").focus();
+					} else if($("#birth").val()==""){
+						alert("생일을 입력해주세요.");
+						$("#birth").focus();
+					} else if($("input[name='gender']:checked").val()==""){
+						alert("성별을 골라주세요.");
+					} else if($("#email").val()==""){
+						alert("이메일을 입력해주세요.");
+						$("#email").focus();
+					} else if($("#emailDomain").val()==""){
+						alert("이메일 도메인을 입력해주세요.");
+						$("#emailDomain").focus();
+					} else if($("#hpno").val() == ""){
+						alert("핸드폰 번호를 입력해주세요.")
+						$("#hpno").focus();
+					} else if($("select[name='job'] option:selected").val()=="----- 선택하세요 -----"){
+						alert("직업을 선택해주세요.");
+					} else {
+						$("#result").html($("#user_id").val()+"<br>"+$("#user_pw").val()+"<br>"
+						+$("#user_name").val()+"<br>"+$("#birth").val()+"<br>"+$("input[name='gender']:checked").val()
+						+"<br>"+$("#email").val()+"@"+$("#emailDomain").val()+"<br>"+$("#hpno").val()+"<br>"+$("select[name='job'] option:selected").val());
+					}
+				})
+				
+				
+			}
+			
+		</script>
+		<style>
+			form{
+				border: 1px solid black;
+				width: 600px;
+				font-size: 14px;
+			}
+			table{
+				height: 600px;
+				text-indent: 1.3;
+				width: 600px;
+				line-height: 2.4;
+			}
+			
+			table tr td{
+				border-bottom: 1px dotted #eee;
+			}
+			
+			
+			table tr:last-child {
+				text-align: center;
+			}
+			
+			table tr td:first-child{
+				width: 100px;
+			}
+			
+			div{
+				display: flex;
+				float: left;
+				justify-content: center;
+				align-content: center;
+				margin: 0 auto 0 auto;
+				
+			}
+		</style>
+	</head>
+	<body onload="init()">
+	
+	<h1>회원가입</h1>
+		<form name="join" id="join">
+			<table>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="user_id" id="user_id"></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="user_pw" id="user_pw"></td>
+				</tr>
+				<tr>
+					<td>비밀번호 확인</td>
+					<td><input type="password" name="user_pwck" id="user_pwck"></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="user_name" id="user_name"></td>
+				</tr>
+				<tr>
+					<td>생년월일</td>
+					<td><input type="text" name="birth" id="birth"></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td><label><input type="radio" name="gender" value="남자">남자</label>
+					<label><input type="radio" name="gender" value="여자">여자</label></td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td><input type="text" name="email" id="email">@<input type="text" name="emailDomain" id="emailDomain"><select name="emailAddress" id="emailAddress">
+						<option>선택</option>
+						<option>naver</option>
+						<option>nate</option>
+						<option>daum</option>
+						<option>gmail</option>
+						<option>직접입력</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>핸드폰번호</td>
+					<td><input type="text" name="hpno" id="hpno"></td>
+				</tr>
+				<tr>
+					<td>취미<input type="checkbox" name="hobby" id="all"></td>
+					<td><input type="checkbox" name="hobby" class="hobby_check" value="걷기">걷기
+					<input type="checkbox" name="hobby" class="hobby_check" value="축구">축구
+					<input type="checkbox" name="hobby" class="hobby_check" value="농구">농구
+					<input type="checkbox" name="hobby" class="hobby_check" value="야구">야구
+					<input type="checkbox" name="hobby" class="hobby_check" value="여행">여행
+					<input type="checkbox" name="hobby" class="hobby_check" value="영화">영화</td>
+				</tr>
+				<tr>
+					<td>직업</td>
+					<td><select name="job" id="job">
+						<option>----- 선택하세요 -----</option>
+						<option>초등학생</option>
+						<option>중학생</option>
+						<option>고등학생</option>
+						<option>대학생</option>
+						<option>회사원</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="file_check" name="file_check">파일 올리기</td>
+					<td><input type="file" id="file" name="file" disabled></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<button type="button" id="check" name="check">회원가입</button>
+					<button type="reset">다시작성</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+		<span id="result"></span>
+		
+		
+	</body>
+</html>
