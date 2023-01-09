@@ -1,4 +1,4 @@
-package basic.class_exam;
+package example.classExam;
 
 public class ScoreOX {
 	private int no;

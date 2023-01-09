@@ -1,4 +1,4 @@
-package basic.class_exam;
+package example.classExam;
 
 public class Employee {
 	public String empno;
@@ -50,5 +50,4 @@ public class Employee {
 	public String printEmployee() {
 		return this.empno+" | " + this.gi + " |\t" + this.su + " |\t" + this.se + " |\t" + this.bong + " |\t" + this.grad;
 	}
-	
 }

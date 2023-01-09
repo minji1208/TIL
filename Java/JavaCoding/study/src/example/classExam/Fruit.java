@@ -1,4 +1,4 @@
-package basic.class_exam;
+package example.classExam;
 
 public class Fruit {
 	String fname;
@@ -26,5 +26,4 @@ public class Fruit {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
 }

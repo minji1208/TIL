@@ -1,6 +1,6 @@
-package basic.class_exam;
+package example.classExam;
 
-public class employee_exam {
+public class Employee_exam {
 
 	public static void main(String[] args) {
 		Employee emp1 = new Employee("A111", 780000);

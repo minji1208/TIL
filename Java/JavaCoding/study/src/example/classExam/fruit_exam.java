@@ -1,6 +1,6 @@
-package basic.class_exam;
+package example.classExam;
 
-public class fruit_exam {
+public class Fruit_exam {
 
 	public static void main(String[] args) {
 		Fruit f1 = new Fruit("banana", 4800);

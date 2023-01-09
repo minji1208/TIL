@@ -1,6 +1,6 @@
-package basic.class_exam;
+package example.classExam;
 
-public class smartPhone_exam {
+public class SmartPhone_exam {
 
 	public static void main(String[] args) {
 		SmartPhone s1 = new SmartPhone("삼성", "갤럭시노트9", 1094500);
@@ -18,7 +18,6 @@ public class smartPhone_exam {
 		System.out.println(s3.getName()+" ["+s3.getMaker()+"]");
 		System.out.println("가격 : "+s3.calculateDiscount());
 		System.out.println("-----------------------");
-		
 	}
 
 }

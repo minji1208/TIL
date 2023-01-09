@@ -1,4 +1,4 @@
-package basic.class_exam;
+package example.classExam;
 
 public class SmartPhone {
 	private String maker;
@@ -48,6 +48,4 @@ public class SmartPhone {
 	public void setDiscountRate(int discountRate) {
 		this.discountRate = discountRate;
 	}
-	
-	
 }

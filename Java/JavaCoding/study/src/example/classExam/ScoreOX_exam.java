@@ -1,6 +1,6 @@
-package basic.class_exam;
+package example.classExam;
 
-public class ScoreOXTest {
+public class ScoreOX_exam {
 
 	public static void main(String[] args) {
 		ScoreOX[] sc = {
@@ -24,7 +24,6 @@ public class ScoreOXTest {
 		for(int i = 0; i<sc.length; i++) {
 			sc[i].display();
 		}
-
 	}
 
 }
