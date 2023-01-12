@@ -23,6 +23,7 @@ public class P_2501 {
 		} else {
 			System.out.println(list.get(K-1));
 		}
+		sc.close();
 	}
 
 }
