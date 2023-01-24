@@ -25,6 +25,7 @@ public class P_11721 {
 			}
 			i+=10;
 		}
+		sc.close();
 	}
 
 }
