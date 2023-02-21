@@ -41,3 +41,14 @@ DB 연동에 필요한 SQL 쿼리문들이 작성되는 파일
 
 #### if 문
 < if test='조건문' >연결 문자열< /if>
+
+## 2023/02/20 시험 정리
+1. session = getSqlSessionFactory().openSession(false); 일 때, false의 역할  
+: 자동 커밋 설정을 뜻하며, false 속성을 통해 commit을 직접 관리할 수 있다.  
+2. mybatis-config.xml에서 < settings> 태그에 대해 작성하시오.  
+: mybatis 구동 시 선언할 설정들을 작성하는 태그명  
+3. Mybatis에서 SQL을 동적으로 제어할 수 있는 구문 종류 4가지  
+: if, choose(when, otherwise), trim(where, set), foreach  
+4. resultType과 resultMap의 차이점  
+: resultType은 resultset 결과를 매핑해서 반환되는 타입의 전체 클래스명이나 별명, resultMap은 resultset 결과를 매핑할 resultMap 참조 아이디명  
+
