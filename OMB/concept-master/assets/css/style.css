@@ -818,7 +818,7 @@ html body .display-7 {
 }
 
 .arrow li:before {
-    font-family: 'Font Awesome\ 5 Free';
+    font-family: 'Gill Sans';
     font-weight: 900;
     display: inline-block;
     position: absolute;
@@ -839,7 +839,7 @@ html body .display-7 {
 }
 
 .bullet-check li:before {
-    font-family: 'Font Awesome\ 5 Free';
+    font-family: 'Gill Sans';
     font-weight: 900;
     display: inline-block;
     position: absolute;
@@ -2032,7 +2032,7 @@ Pageheader
     padding-right: .5rem;
     color: #b1b1c0;
     content: "\f105";
-    font-family: 'Font Awesome\ 5 Free';
+    font-family: 'Gill Sans';
     font-weight: 600;
 }
 
@@ -2443,7 +2443,7 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
 .product-colors label:before {
      content: "\f00c";
     position: absolute;
-    font-family: 'Font Awesome\ 5 Free';
+    font-family: 'Gill Sans';
     font-weight: 900;
     padding: 0px;
     margin: 4px 8px;
