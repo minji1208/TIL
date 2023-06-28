@@ -41,6 +41,8 @@
 
             background-size: cover;
             position: relative;
+
+            cursor: pointer;
         }
 
         .footer {
@@ -91,31 +93,104 @@
 
             transform: translate(-50%);
             left: 50%;
+
+            opacity: 0;
+        }
+
+        .video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .showText {
+            opacity: 0;
+        }
+
+        .hideText {
+            opacity: 1;
+            transition: opacity 0.5s linear;
         }
     </style>
+
+    <script>
+        // 텍스트가 보여지는 기능
+        // 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+        // 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+        function showText(number) {
+            if(number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            } else if (number ===2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            } else { 
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            }
+        }
+
+        // 텍스트가 감춰지는 기능
+        // 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+        // 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌   
+        function hideText(number) {
+            if(number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                doucment.querySelector("#desc1").classList.add("hideText");
+            } else if(number === 2){
+                document.querySelector("#desc2").classList.remove("showText");
+                doucment.querySelector("#desc2").classList.add("hideText");
+            } else {
+                document.querySelector("#desc3").classList.remove("showText");
+                doucment.querySelector("#desc3").classList.add("hideText");
+            }
+        }
+
+        // 클릭 기능
+        // 1. 선택되 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+        function alertText(number) {
+            alert('${number}번째 추억이에요! 눌러주셔서 감사합니다 :)');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="photos">
-            <div id="image1" class="photo-frame">
+            <div id="image1" class="photo-frame"
+                onmouseover="hideText(1)"
+                onmouseout="showText(1)"
+                onclick="alertText(1)"
+            >
                 <span id="desc1" class="photo_description">
                     비오는데 가족👨‍👩‍👧‍👦 사진 찍음
                 </span>
             </div>
-            <div id="image2" class="photo-frame">
-                <span id="desc1" class="photo_description">
+            <div id="image2" class="photo-frame"
+                onmouseover="hideText(2)"
+                onmouseout="showText(2)"
+                onclick="alertText(2)"
+            >
+                <span id="desc2" class="photo_description">
                     엄마아빠 찰칵
                 </span>
             </div>
-            <div id="image3" class="photo-frame">
-                <span id="desc1" class="photo_description">
+            <div id="image3" class="photo-frame"
+                onmouseover="hideText(3)"
+                onmouseout="showText(3)"
+                onclick="alertText(3)"
+            >
+                <span id="desc3" class="photo_description">
                     일렬로 한방
                 </span>
             </div>
-            <div id="image4" class="photo-frame">
-                <span id="desc1" class="photo_description">
+            <div class="photo-frame">
+                <!-- <span id="desc1" class="photo_description">
                     현기랑 아빠랑~
-                </span>
+                </span> -->
+                <iframe 
+                    src="./img4.mp4" 
+                    frmaeborder="0"
+                    class="video"
+                ></iframe>
             </div>
         </div>
         <div class="footer">
